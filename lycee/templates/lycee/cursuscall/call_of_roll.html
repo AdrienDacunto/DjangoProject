@@ -1,0 +1,33 @@
+{% extends 'master.html' %}
+
+{%  if liste %}
+    {% block title %}
+        {% if cursus %}
+            {{ cursus.name }} : Call of roll
+        {% endif %}
+    {% endblock %}
+    {% block content %}
+    <div class="container">
+        <form method="POST">
+            <label for="date">date : </label><input type="date" id="date" name="date" />
+        {% for student in liste %}
+            <div class="row">
+            <div class="col-sm-2">
+            <input type="checkbox" id="{{ student.id }}" />
+            <label for="{{ student.id }}" >{{ student.first_name }} {{ student.last_name }}</label>
+            </div>
+            </div>
+        {% endfor %}
+        <div class="container">
+            <div class="container">
+                <div class="row">
+                    <button class="button radius success right" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    {% endblock %}
+{% else %}
+    <p>No student to show.</p>
+{% endif %}
