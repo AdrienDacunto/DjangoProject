@@ -29,4 +29,5 @@ urlpatterns = [
     path('lycee/student/edit/<int:student_id>', views.edit_student, name='edit_student'),
     path('lycee/call/1', StudentCallOfRollParticularForm.as_view(), name='call_of_roll_particular'),
     path('lycee/cursuscall/<int:cursus_id>', views.call_of_roll, name='call_of_roll'),
+    path('lycee/appeal', views.appeal_view, name='appeal_view'),
 ]

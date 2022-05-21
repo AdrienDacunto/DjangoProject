@@ -11,14 +11,15 @@
             <div class="col-sm-2">
             <a href='lycee/{{ cursus.id }}'>{{ cursus.name }}</a>
             </div>
-            <button class="button radius alert left" type="button"><a href='lycee/cursuscall/{{ cursus.id }}'>Call of roll</a></button>
+            <button class="btn btn-warning" type="button"><a href='lycee/cursuscall/{{ cursus.id }}'>Call of roll</a></button>
             </div>
         {% endfor %}
         <div class="container">
             <div class="container">
                 <div class="row">
-                    <button class="button radius alert left" type="button"><a href={% url 'create_student' %}>Create Student</a></button>
-                    <button class="button radius alert left" type="button"><a href='lycee/call/1'>Particular Call of roll</a></button>
+                    <button class="btn btn-danger" type="button"><a style="color: white" href={% url 'create_student' %} >Create a student</a></button>
+                    <button class="btn btn-primary" type="button"><a href='lycee/call/1' style="color: white">Particular Call of roll</a></button>
+                    <button class="btn btn-primary" type="button"><a href='lycee/appeal' style="color: white">See Appeals</a></button>
                 </div>
             </div>
         </div>

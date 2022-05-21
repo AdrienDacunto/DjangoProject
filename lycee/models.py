@@ -94,3 +94,24 @@ class Presence(models.Model):
     on_delete=models.CASCADE,
     null=True
   )
+class TimeSlot(models.Model):
+  start_time = models.TimeField(
+    verbose_name='start_time',
+    blank=False,
+    null=False
+  )
+  stop_time = models.TimeField(
+    verbose_name='stop_time',
+    blank=False,
+    null=False
+  )
+  presence = models.ForeignKey(
+    Presence,
+    on_delete=models.CASCADE,
+    null=True
+  )
+  cursus = models.ForeignKey(
+    Cursus,
+    on_delete=models.CASCADE,
+    null=True
+  )
