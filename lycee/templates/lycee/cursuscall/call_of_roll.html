@@ -1,0 +1,36 @@
+{% extends 'master.html' %}
+
+{%  if liste %}
+    {% block title %}
+        {% if cursus %}
+            {{ cursus.name }} : Call of roll
+        {% endif %}
+    {% endblock %}
+    {% block content %}
+    <div class="container">
+        <form method="post">
+        {% csrf_token %}
+            <label for="date">date : </label><input type="date" id="date" name="date" required/>
+            <label for="time_start">date start</label><input type="time" id="time_start" name="time_start" step="3600" min="09:00" max="17:00" required/>
+            <label for="time_end">date end</label><input type="time" id="time_end" name="time_end" step="3600" min="10:00" max="18:00" required/>
+        {% for student in liste %}
+            <div class="row">
+            <div class="col-sm-2">
+            <input type="checkbox" value="{{ student.id }}" name="student" />
+            <label>{{ student.first_name }} {{ student.last_name }}</label>
+            </div>
+            </div>
+        {% endfor %}
+        <div class="container">
+            <div class="container">
+                <div class="row">
+                    <button class="button radius success right" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    {% endblock %}
+{% else %}
+    <p>No student to show.</p>
+{% endif %}

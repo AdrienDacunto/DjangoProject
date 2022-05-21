@@ -1,0 +1,25 @@
+{% extends 'master.html' %}
+
+{% load static %}
+
+{% if liste %}
+    {% block title %}
+        BTS 2018-2019
+    {% endblock %}
+
+    {% block content %}
+        <div class="container">
+        {% for student in liste %}
+        <div class="row">
+            <div class="col-sm-2">
+                <ul>
+                    <li><a href='student/{{ student.id }}'>{{ student.first_name }} {{ student.last_name }}</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    {% endblock %}
+{% else %}
+    <p>No student to show.</p>
+{%  endif %}

@@ -1,0 +1,20 @@
+{% extends 'master.html' %}
+
+{%  if liste %}
+    {% block title %}
+        Appeal View (All)
+    {% endblock %}
+    {% block content %}
+    <div class="container">
+        {% for time_slot in liste %}
+
+            <li>
+                <a href="">Cursus {{ time_slot.cursus_id }} : {{ time_slot.start_time }} | {{ time_slot.stop_time }} </a>
+            </li>
+
+        {% endfor %}
+    </div>
+    {% endblock %}
+{% else %}
+    <p>No appeal to show.</p>
+{% endif %}
